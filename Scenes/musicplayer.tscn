@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c42nv120ci5rd"]
+
+[ext_resource type="AudioStream" uid="uid://b36gk506wi85y" path="res://Assets/Music/PARTYNEXTDOOR & DRAKE - NOKIA (Official Lyric Video) [YAaIgrWtRYk].mp3" id="1_v1qfn"]
+[ext_resource type="Script" uid="uid://c45ij2dtjpk8q" path="res://Scripts/musicplayer.gd" id="2_hh5uf"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_v1qfn")
+script = ExtResource("2_hh5uf")

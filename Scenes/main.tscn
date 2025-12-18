@@ -1,8 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0ut2m0u7o0dn"]
+[gd_scene load_steps=8 format=3 uid="uid://d0ut2m0u7o0dn"]
 
 [ext_resource type="Shader" uid="uid://ienknglmbvd0" path="res://Assets/Shaders/wobblyline.gdshader" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://c42nv120ci5rd" path="res://Scenes/musicplayer.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://bac6hp7ib131e" path="res://Scenes/store.tscn" id="3_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://cit62jwpwoumx" path="res://Scenes/metronome.tscn" id="4_kry3j"]
+[ext_resource type="PackedScene" uid="uid://bwj02u4c7i1xn" path="res://Scenes/playercontroller.tscn" id="5_kry3j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0xm2m"]
+shader = ExtResource("1_jjgbg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jjgbg"]
 shader = ExtResource("1_jjgbg")
 
 [node name="Main" type="Control"]
@@ -39,12 +46,24 @@ offset_right = -102.0
 offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.9490196, 0.9098039, 0.32156864, 1)
+color = Color(1, 0.77254903, 0.2901961, 1)
 
 [node name="Left-Sidebar" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_jjgbg")
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 92.0
 grow_vertical = 2
 color = Color(0.8509804, 0.13725491, 0.13725491, 1)
+
+[node name="MusicPlayer" parent="." instance=ExtResource("2_bo1nx")]
+autoplay = true
+
+[node name="Store" parent="." instance=ExtResource("3_jjvhh")]
+
+[node name="Metronome" parent="." instance=ExtResource("4_kry3j")]
+
+[node name="playercontroller" parent="." instance=ExtResource("5_kry3j")]
+
+[connection signal="musicpos" from="MusicPlayer" to="Metronome" method="_on_music_player_musicpos"]
