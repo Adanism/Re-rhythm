@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://d0ut2m0u7o0dn"]
 
-[ext_resource type="Shader" uid="uid://ienknglmbvd0" path="res://Assets/Shaders/wobblyline.gdshader" id="1_jjgbg"]
+[ext_resource type="Shader" uid="uid://ienknglmbvd0" path="res://Resources/Shaders/wobblyline.gdshader" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://c42nv120ci5rd" path="res://Scenes/musicplayer.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://bac6hp7ib131e" path="res://Scenes/store.tscn" id="3_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://cit62jwpwoumx" path="res://Scenes/metronome.tscn" id="4_kry3j"]

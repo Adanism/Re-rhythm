@@ -15,6 +15,9 @@ func _on_music_player_musicpos(playback_pos: float) -> void:
 	if current_total_beat > last_beat:
 		last_beat = current_total_beat
 		emit_signal("beat", last_beat)
-		print("Beat: ", last_beat)
+		#print("Beat: ", last_beat)
+		#Makes sure the player doesnt need to have frame perfect timing 
+		#Ima use this variable later on in another node
 		var activebeatstartpos = current_total_beat - margin
 		var activebeatendtpos = current_total_beat + margin
+		
