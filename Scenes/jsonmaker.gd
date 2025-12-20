@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 func _on_playercontroller_event(keypressed: Variant) -> void:
 	#for the dictionary
 	letterlane = keypressed
+	#writing the to the json file
 	var file = FileAccess.open(FILE_PATH, FileAccess.WRITE)
 	var data_to_send = keypressed
 	
