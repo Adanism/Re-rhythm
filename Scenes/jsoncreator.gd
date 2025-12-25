@@ -1,33 +1,36 @@
 extends Node2D
+
 @onready var music_player: AudioStreamPlayer = $"../MusicPlayer"
-var FILE_PATH = "res://Resources/Data/Nokia.json"
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	print(music_player.stream)
-#format I need to get it in
-#{
- # "song_metadata": {
- #   "name": "Lullaby",
-  #  "bpm": 120,
- #   "offset": 0.1
- # },
-  #"notes": [
-  #  { "beat": 1, "lane": 0, "type": "tap" },
-  #  { "beat": 2, "lane": 2, "type": "tap" },
-  #  { "beat": 3, "lane": 1, "type": "hold", "duration": 0.5 }
-  #]
-#}
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
+const FILE_PATH = "res://Resources/Data/Nokia.json"
+@export var FILE_NAME = "Nokia"
+@export var FILE_BPM = 120
+@export var FILE_OFFSET = 0.0
+var currentjsondictonary: Dictionary
 func _on_jsonmaker_jsondict(jsondictonary: Dictionary) -> void:
-	var file = FileAccess.open(FILE_PATH, FileAccess.READ_WRITE)
-	var stringedjson = JSON.stringify(jsondictonary)
-	file.store_string(stringedjson)
-	file.close()
-	#var file_read = FileAccess.open(FILE_PATH, FileAccess.READ)
-	#var json_string = file_read.get_as_text()
-	#print(json_string)
+	currentjsondictonary = jsondictonary
+	var final_data = {
+		"song_metadata": {
+			"name": FILE_PATH,
+			"bpm": FILE_BPM,
+			"offset": FILE_OFFSET
+		},
+		"notes": [] 
+	}
+	
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("ChartSend"):
+		if FileAccess.file_exists(FILE_PATH):
+			var write_file = FileAccess.open(FILE_PATH,FileAccess.WRITE)
+			var jsonstring = JSON.stringify(currentjsondictonary)
+			write_file.store_string(jsonstring)
+			write_file.close()
+			print(jsonstring)
+			
+			
+			
+			
+			
+		
+	
+	
+	
