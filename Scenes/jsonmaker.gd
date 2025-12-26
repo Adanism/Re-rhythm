@@ -7,7 +7,6 @@ func _ready() -> void:
 signal jsondict(jsondictonary: Dictionary)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#Do this at the end of the song after testing
 	pass
 	
 	
@@ -30,4 +29,5 @@ func _on_metronome_beat(current_beat: Variant) -> void:
 	var combined_dict = beat_log.duplicate()
 	combined_dict.merge(lane_log)
 	emit_signal("jsondict",combined_dict)
+	
 	

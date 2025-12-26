@@ -16,6 +16,7 @@ func _on_jsonmaker_jsondict(jsondictonary: Dictionary) -> void:
 		},
 		"notes": [] 
 	}
+
 	
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ChartSend"):
