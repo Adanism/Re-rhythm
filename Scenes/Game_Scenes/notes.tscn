@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpsp2r5u3bi2f"]
+
+[ext_resource type="Texture2D" uid="uid://c5wyndxqjfrcy" path="res://Assets/Art/note.svg" id="1_cg6ja"]
+
+[node name="Notes" type="Node2D"]
+
+[node name="Note" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_cg6ja")

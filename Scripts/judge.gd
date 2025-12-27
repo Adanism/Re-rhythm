@@ -5,6 +5,7 @@ var thecurrentbeat: Variant
 var thecurrentlanepressed: Variant
 signal success
 signal failure
+signal chart
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -21,12 +22,13 @@ func whatismyjsondata():
 	if chart_data == null:
 		print("Error: Could not open chart")
 		return 
+	emit_signal("chart",chart_data,thecurrentbeat)
 	for entry in chart_data["chart"]:
 		if thecurrentbeat == entry["beat"]:
 			#print("chart_beat: ",entry["beat"])
 			if thecurrentlanepressed == entry["lane"]:
 				print("That was the correct lane")
-				emit_signal("sucess")
+				emit_signal("success")
 			else:
 				emit_signal("failure")	
 			#print("chart_lane: ",entry["lane"])

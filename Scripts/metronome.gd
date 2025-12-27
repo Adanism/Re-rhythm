@@ -5,11 +5,13 @@ var beat_duration = 60.0 / bpm # Duration of one beat in seconds
 var last_beat = 0
 var activebeat = -1
 signal beat(current_beat)
+signal playbackpos
 var margin = 0.2
 
 func _on_music_player_musicpos(playback_pos: float) -> void:
 	# Determine which beat we SHOULD be on based on time
 	var current_total_beat = floor(playback_pos / beat_duration)
+	emit_signal("playbackpos",playback_pos)
 	
 	# If the calculated beat is higher than our last recorded beat, a beat happened
 	if current_total_beat > last_beat:

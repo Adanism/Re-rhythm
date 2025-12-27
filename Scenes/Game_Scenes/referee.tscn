@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://cbu30owx85xwi"]
+[gd_scene load_steps=2 format=3 uid="uid://cbu30owx85xwi"]
+
+[ext_resource type="Script" uid="uid://c47akfvoen6rn" path="res://Scripts/referee.gd" id="1_ny7f7"]
 
 [node name="Referee" type="Node2D"]
+script = ExtResource("1_ny7f7")

@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwj02u4c7i1xn"]
+[gd_scene load_steps=3 format=3 uid="uid://bwj02u4c7i1xn"]
 
 [ext_resource type="Script" uid="uid://dg80b284kq7gn" path="res://Scripts/playercontroller.gd" id="1_ild0b"]
+[ext_resource type="AudioStream" uid="uid://gb31ho65a5vs" path="res://Assets/Sound_Effects/light-hand-clap-82510.mp3" id="2_kcesu"]
 
 [node name="playercontroller" type="Node2D"]
 script = ExtResource("1_ild0b")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_kcesu")
+volume_db = -46.423
