@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cakssfe6ov3bs"]
+
+[ext_resource type="Texture2D" uid="uid://pdd1di77nrkv" path="res://Assets/Art/arrows.svg" id="1_pv8ue"]
+
+[node name="UpArrow" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pv8ue")

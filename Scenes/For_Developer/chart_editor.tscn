@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://yemmvdiu7l0v"]
+
+[ext_resource type="PackedScene" uid="uid://c42nv120ci5rd" path="res://Scenes/Game_Scenes/musicplayer.tscn" id="1_46e5b"]
+[ext_resource type="AudioStream" uid="uid://dgb3tgqrfcqu" path="res://Assets/Music/Silver.mp3" id="2_uygs2"]
+[ext_resource type="PackedScene" uid="uid://cit62jwpwoumx" path="res://Scenes/Game_Scenes/metronome.tscn" id="3_pily7"]
+[ext_resource type="Script" uid="uid://b8tl4lhhg0xfx" path="res://Scripts/jsonmaker.gd" id="4_6j2p2"]
+[ext_resource type="PackedScene" uid="uid://bwj02u4c7i1xn" path="res://Scenes/Game_Scenes/playercontroller.tscn" id="5_ivv4e"]
+[ext_resource type="Script" uid="uid://bs2hplda52i1n" path="res://Scripts/jsoncreator.gd" id="6_8liln"]
+
+[node name="ChartEditor" type="Node2D"]
+
+[node name="MusicPlayer" parent="." instance=ExtResource("1_46e5b")]
+stream = ExtResource("2_uygs2")
+autoplay = true
+
+[node name="Metronome" parent="." instance=ExtResource("3_pily7")]
+
+[node name="JSONMAKER" type="Node2D" parent="."]
+script = ExtResource("4_6j2p2")
+
+[node name="playercontroller" parent="." instance=ExtResource("5_ivv4e")]
+
+[node name="JSONCREATOR" type="Node2D" parent="."]
+script = ExtResource("6_8liln")
+
+[connection signal="musicpos" from="MusicPlayer" to="Metronome" method="_on_music_player_musicpos"]
+[connection signal="beat" from="Metronome" to="JSONMAKER" method="_on_metronome_beat"]
+[connection signal="jsondict" from="JSONMAKER" to="JSONCREATOR" method="_on_jsonmaker_jsondict"]
+[connection signal="event" from="playercontroller" to="JSONMAKER" method="_on_playercontroller_event"]
